@@ -1,0 +1,42 @@
+[Unit]
+Description=Create thermald configuration using dptfxtract
+
+PropagatesReloadTo=thermald.service
+Before=thermald.service
+
+# Ensure the target directory exists
+ConditionPathExists=/var/run/thermald/
+# The file in /etc is prefered when it exists, so don't extract data in that case
+ConditionPathExists=!/etc/thermald/thermal-conf.xml.auto
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/dptfxtract -o /var/run/thermald/
+Restart=no
+
+NoNewPrivileges=yes
+LimitCPU=10
+LimitDATA=50M
+LimitNPROC=1
+
+ProtectHome=yes
+ProtectSystem=full
+ReadWritePaths=/var/run/thermald/
+PrivateTmp=yes
+PrivateDevices=yes
+PrivateNetwork=yes
+PrivateUsers=yes
+ProtectKernelTunables=yes
+ProtectKernelModules=yes
+ProtectControlGroups=yes
+RestrictAddressFamilies=
+RestrictNamespaces=
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+SystemCallFilter=@basic-io @file-system @signal @process ioctl mprotect brk
+SystemCallArchitectures=native
+
+[Install]
+WantedBy=thermald.service

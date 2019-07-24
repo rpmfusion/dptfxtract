@@ -1,5 +1,5 @@
 Name:           dptfxtract
-Version:        1.3
+Version:        1.4.1
 Release:        1%{?dist}
 Summary:        Utility to generate a thermald configuration from DPTF
 
@@ -60,5 +60,8 @@ ln -s ../dptfxtract.service %{buildroot}%{_unitdir}/thermald.service.wants/dptfx
 
 
 %changelog
+* Wed Jul 24 2019 Benjamin Berg <bberg@redhat.com> - 1.4.1-2
+- New upstream release
+
 * Sat Jun 08 2019 Benjamin Berg <bberg@redhat.com> - 1.3-1
 - Package dptfxtract (#5268)

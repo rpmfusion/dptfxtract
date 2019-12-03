@@ -35,7 +35,7 @@ LockPersonality=yes
 MemoryDenyWriteExecute=yes
 RestrictRealtime=yes
 RestrictSUIDSGID=yes
-SystemCallFilter=@basic-io @file-system @signal @process ioctl mprotect brk
+SystemCallFilter=@basic-io @file-system @signal @process ioctl mprotect brk madvise
 SystemCallArchitectures=native
 
 [Install]

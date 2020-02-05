@@ -1,6 +1,6 @@
 Name:           dptfxtract
 Version:        1.4.2
-Release:        1%{?dist}
+Release:        2%{?dist}
 Summary:        Utility to generate a thermald configuration from DPTF
 
 License:        Redistributable, no modification permitted
@@ -60,6 +60,9 @@ ln -s ../dptfxtract.service %{buildroot}%{_unitdir}/thermald.service.wants/dptfx
 
 
 %changelog
+* Wed Feb 05 2020 RPM Fusion Release Engineering <leigh123linux@gmail.com> - 1.4.2-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_32_Mass_Rebuild
+
 * Tue Dec 03 2019 Benjamin Berg <bberg@redhat.com> - 1.4.2-1
 - New upstream release
 - Permit madvise syscall (#5451)

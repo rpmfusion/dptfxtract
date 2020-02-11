@@ -12,6 +12,7 @@ ConditionPathExists=!/etc/thermald/thermal-conf.xml.auto
 [Service]
 Type=oneshot
 ExecStart=/usr/libexec/dptfxtract -o /var/run/thermald/
+WorkingDirectory=/tmp
 Restart=no
 
 NoNewPrivileges=yes
@@ -20,7 +21,7 @@ LimitDATA=50M
 LimitNPROC=1
 
 ProtectHome=yes
-ProtectSystem=full
+ProtectSystem=strict
 ReadWritePaths=/var/run/thermald/
 PrivateTmp=yes
 PrivateDevices=yes
